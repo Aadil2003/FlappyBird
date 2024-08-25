@@ -51,7 +51,7 @@ function startGame() {
     board.style.backgroundImage = "url('./flappybirdbg.png')";
     updateDimensions();
     requestAnimationFrame(update);
-    setInterval(placepipes, 1400);
+    setInterval(placepipes, 1800);
 }
 
 function endGame() {
