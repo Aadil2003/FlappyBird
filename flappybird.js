@@ -17,7 +17,7 @@ let pipex = 0;
 let pipey = 0;
 let topPipeImage;
 let bottomPipeImage;
-let velocityX = -2;
+let velocityX = -2.5;
 let velocityY = 0;
 let gravity = 0.3;
 let score = 0;
@@ -176,7 +176,7 @@ function placepipes() {
 
 function movebird() {
     if (!gameStarted) return;
-    velocityY = -6;
+    velocityY = -5;
 }
 
 function detection(a, b) {
