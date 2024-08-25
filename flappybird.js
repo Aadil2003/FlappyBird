@@ -19,7 +19,7 @@ let topPipeImage;
 let bottomPipeImage;
 let velocityX = -2;
 let velocityY = 0;
-let gravity = 0.4;
+let gravity = 0.2;
 let score = 0;
 let highscore;
 let end= document.getElementById("end")
@@ -51,7 +51,7 @@ function startGame() {
     board.style.backgroundImage = "url('./flappybirdbg.png')";
     updateDimensions();
     requestAnimationFrame(update);
-    setInterval(placepipes, 1800);
+    setInterval(placepipes, 2000);
 }
 
 function endGame() {
