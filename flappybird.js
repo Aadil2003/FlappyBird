@@ -3,7 +3,7 @@ let context;
 let birdimage;
 let gameover = false;
 let gameStarted = false;
-let startaudio=document.getElementById("start")
+let startaudio = document.getElementById("start")
 let bird = {
     x: 0,
     y: 0,
@@ -19,12 +19,15 @@ let topPipeImage;
 let bottomPipeImage;
 let velocityX = -2.5;
 let velocityY = 0;
-let gravity = 0.4;
+let gravity = 0.2;
 let score = 0;
 let highscore;
 let end= document.getElementById("end")
+let finderscore=0
+let darkscore=0
 
 function updateDimensions() {
+
     let boardwidth = window.innerWidth;
     let boardheight = window.innerHeight;
 
@@ -35,9 +38,11 @@ function updateDimensions() {
     bird.y = boardheight / 2;
 
     pipex = boardwidth;
+    
 }
 
 function startGame() {
+
     document.getElementById('menu').style.display = 'none';
     document.getElementById('gameOver').style.display = 'none';
     gameStarted = true;
@@ -51,7 +56,12 @@ function startGame() {
     board.style.backgroundImage = "url('./flappybirdbg.png')";
     updateDimensions();
     requestAnimationFrame(update);
-    setInterval(placepipes, 2000);
+    if(board.width>768){
+        setInterval(placepipes, 1000);
+    }
+    else{setInterval(placepipes, 1500);}
+
+   
 }
 
 function endGame() {
@@ -63,6 +73,7 @@ function endGame() {
 }
 
 window.onload = function() {
+  
     board = document.getElementById("board");
     context = board.getContext("2d");
     birdimage = new Image();
@@ -95,6 +106,7 @@ window.onload = function() {
     window.addEventListener("resize", updateDimensions);
     document.addEventListener("keydown", movebird);
     document.addEventListener("click", movebird);
+    updateDimensions();
 };
 
 function update() {
@@ -124,8 +136,11 @@ function update() {
         context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height);
         if (!pipe.passed && bird.x > pipe.x + pipe.width) {
             score += 0.5;
+            finderscore+=0.5
+            darkscore+=0.5
             pipe.passed = true;
         }
+
     }
 
     while (pipearray.length > 0 && pipearray[0].x + pipewidth < 0) {
@@ -144,13 +159,16 @@ function update() {
         });
         localStorage.setItem("highscore", highscore);
     }
+    speed();
+  
+    
 }
 
 function placepipes() {
     if (!gameStarted) return;
 
     let opening = board.height / 4;
-    let randomy = pipey - (pipeheight / 4) - Math.random() * (pipeheight / 2);
+    let randomy = pipey - (pipeheight/4) - Math.random() * (pipeheight/2);
 
     let topPipe = {
         img: topPipeImage,
@@ -185,3 +203,11 @@ function detection(a, b) {
            a.y <= b.y + b.height &&
            a.y + a.height >= b.y;
 }
+function speed(){
+    if(finderscore>=4){
+        velocityX-=0.4
+        finderscore=0
+    }
+}
+
+   
