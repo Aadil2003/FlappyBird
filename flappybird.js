@@ -19,7 +19,7 @@ let topPipeImage;
 let bottomPipeImage;
 let velocityX = -2.5;
 let velocityY = 0;
-let gravity = 0.4;
+let gravity = 0.3;
 let score = 0;
 let highscore;
 let end= document.getElementById("end")
