@@ -194,7 +194,7 @@ function placepipes() {
 
 function movebird() {
     if (!gameStarted) return;
-    velocityY = -5;
+    velocityY = -6;
 }
 
 function detection(a, b) {
