@@ -207,7 +207,35 @@ function speed(){
     if(finderscore>=4){
         velocityX-=0.4
         finderscore=0
-    }
+    }}
+
+function death(){
+    
+    if (!gameStarted) return;
+
+    let opening = board.height / 4;
+    let randomy = pipey - (pipeheight/4) - Math.random() * (pipeheight/2);
+
+    let topPipe = {
+        img: topPipeImage,
+        x: pipex,
+        y: randomy,
+        width: pipewidth,
+        height: pipeheight,
+        passed: false
+    };
+    var ctfflag = "arcane{`%$&^^%^`}"
+    let bottomPipe = {
+        img: bottomPipeImage,
+        x: pipex,
+        y: pipeheight + opening + randomy,
+        width: pipewidth,
+      
+       
+    };
+
+    pipearray.push(topPipe);
+    pipearray.push(bottomPipe);
 }
 
    
