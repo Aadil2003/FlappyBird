@@ -224,7 +224,7 @@ function death(){
         height: pipeheight,
         passed: false
     };
-    var ctfflag = "arcane{`%$&^^%^`}"
+    var ctfflag = "arcane{gameover}"
     let bottomPipe = {
         img: bottomPipeImage,
         x: pipex,
