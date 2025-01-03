@@ -37,6 +37,9 @@ canvas {
 #menu {
     display: flex;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./flappybirdbg.png');
+    background-repeat: no-repeat;
+    background-size: cover; /* Optional: Ensures the image covers the entire container */
+
    }
 
 #gameOver {
